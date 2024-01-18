@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'animation',
     loadChildren: () => import("./animation/animation.module").then(m => m.AnimationModule),
   },
+  {
+    path: 'mat-table-example',
+    loadChildren: () => import("./mat-table-example/mat-table-example.module").then(m => m.MatTableExampleModule),
+  },
 ];
 
 @NgModule({
