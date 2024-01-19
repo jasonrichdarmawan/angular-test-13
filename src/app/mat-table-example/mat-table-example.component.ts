@@ -61,7 +61,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./mat-table-example.component.scss']
 })
 export class MatTableExampleComponent implements AfterViewInit {
-  displayedColumns: string[] = ['select', 'position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -113,5 +112,9 @@ export class MatTableExampleComponent implements AfterViewInit {
 
   get totalWeight(): string {
     return this.dataSource.data.reduce((acc, row) => acc + row.weight, 0).toFixed(2);
+  }
+
+  get totalPeriodicElements(): number {
+    return this.dataSource.data.length;
   }
 }

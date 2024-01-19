@@ -27,8 +27,8 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-            Name
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name" colspan="2">
+            Periodic Elements
         </th>
         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
         <td mat-footer-cell *matFooterCellDef> </td>
@@ -52,10 +52,17 @@
         <td mat-footer-cell *matFooterCellDef> </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.add(row)"
+    <ng-container matColumnDef="more">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef></td>
+        <td mat-footer-cell *matFooterCellDef colspan="6" class="mat-column-more__footer">You have {{ totalPeriodicElements }} periodic elements.</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['select', 'name', 'weight', 'symbol']; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['select', 'position', 'name', 'weight', 'symbol'];" (click)="clickedRows.add(row)"
         [class.demo-row-is-clicked]="clickedRows.has(row)"></tr>
-    <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-footer-row *matFooterRowDef="['select', 'position', 'name', 'weight', 'symbol']; sticky: true"></tr>
+    <tr mat-footer-row *matFooterRowDef="['more']; sticky: true"></tr>
     
     <!-- if there is no data / the filter result is empty -->
     <tr *matNoDataRow="">No data found.</tr>

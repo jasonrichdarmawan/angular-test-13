@@ -2,6 +2,22 @@ table {
     width: 100%;
 }
 
+.mat-header-row {
+    height: unset;
+
+    .mat-header-cell {
+        padding-block: 10px;
+
+        &:first-of-type {
+            padding-left: 20px;
+        }
+
+        &:last-of-type {
+            padding-right: 20px;
+        }
+    }
+}
+
 // to allow ripple effect to extend beyond the cell
 .mat-column-select {
     overflow: initial;
@@ -35,3 +51,8 @@ table {
     font-weight: bold;
 }
 
+.mat-column-more {
+    &__footer {
+        text-align: center;
+    }
+}
