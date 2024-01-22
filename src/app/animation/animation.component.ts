@@ -25,18 +25,21 @@ import { Component, OnInit } from '@angular/core';
         animate('0.5s')
       ]),
     ]),
+
+    trigger('collapsedExpanded', [
+      state('collapsed', style({ height: '0px', display: 'none' })),
+      state('expanded', style({})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)'))
+    ]),
   ],
 })
 export class AnimationComponent implements OnInit {
   isOpen = true;
+  isCollapsed = true;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  toggle() {
-    this.isOpen = !this.isOpen;
   }
 
 }

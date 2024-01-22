@@ -1,6 +1,12 @@
 <p>animation works!</p>
-<button type="button" (click)="toggle()">Toggle Open/Close</button>
+<button type="button" (click)="isOpen = !isOpen">Toggle Open/Close</button>
   
 <div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
     <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
+
+<button (click)="isCollapsed = !isCollapsed;">Toggle Collapsed/Expanded</button>
+
+<div [@collapsedExpanded]="isCollapsed ? 'collapsed' : 'expanded'">
+    <p>Expanded</p>
 </div>
